@@ -46,6 +46,13 @@ class Motocicleta(Bicicleta):
 def catalogar(lista_vehiculos):
     for vehiculo in lista_vehiculos:
         print (vehiculo)
+        ruedas = vehiculo.ruedas
+        if ruedas == 2:
+            print("Es una bicicleta o una motocicleta")
+        elif ruedas == 4:
+            print("Es un coche o una camioneta")
+        else:
+            print("No es un vehículo")
     return lista_vehiculos   
 
 # c = Coche("azul", 4, 150, 1200)
