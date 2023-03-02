@@ -43,10 +43,10 @@ class Motocicleta(Bicicleta):
             return vehiculo.__str__(self) + ", Velocidad: " + str(self.velocidad) + ", Cilindrada: " + str(self.cilindrada)
      
  
-    
-lista_vehiculos = [Coche("azul", 4, 150, 1200), Bicicleta("roja", 2, "urbana"), Motocicleta("negra", 2, "urbana", 200, 600), camioneta("blanca", 4, 100, 2000, 1000)]
-
-
+def catalogar(lista_vehiculos):
+    for vehiculo in lista_vehiculos:
+        print (vehiculo)
+    return lista_vehiculos   
 
 # c = Coche("azul", 4, 150, 1200)
 # print(c)
@@ -60,10 +60,7 @@ lista_vehiculos = [Coche("azul", 4, 150, 1200), Bicicleta("roja", 2, "urbana"), 
 # cam = camioneta("blanca", 4, 100, 2000, 1000)
 # print(cam)
 
+lista_vehiculos = [Coche("azul", 4, 150, 1200), Bicicleta("roja", 2, "urbana"), Motocicleta("negra", 2, "urbana", 200, 600), camioneta("blanca", 4, 100, 2000, 1000)]
 
-def catalogar(lista_vehiculos):
-    for vehiculo in lista_vehiculos:
-        print (vehiculo)
-    return lista_vehiculos
 
 catalogar(lista_vehiculos)  
