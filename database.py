@@ -26,7 +26,6 @@ class Bicicleta(vehiculo):
              return vehiculo.__str__(self) + ", Tipo: " + str(self.tipo)  
 
 
-
 class camioneta(Coche):
      def __init__(self, color, ruedas, velocidad, cilindrada, carga):
           Coche.__init__(self, color, ruedas, velocidad, cilindrada)
@@ -43,6 +42,15 @@ class Motocicleta(Bicicleta):
             return vehiculo.__str__(self) + ", Velocidad: " + str(self.velocidad) + ", Cilindrada: " + str(self.cilindrada)
      
  
+class Quad(vehiculo):
+    def __init__(self, color, ruedas, velocidad, cilindrada):
+        Coche.__init__(self, color, ruedas) and Bicicleta.__init__(self, color, ruedas)
+        self.velocidad = velocidad
+        self.cilindrada = cilindrada
+    def __str__(self):
+            return vehiculo.__str__(self) + ", Velocidad: " + str(self.velocidad) + ", Cilindrada: " + str(self.cilindrada)
+    
+
 def catalogar(lista_vehiculos):
     for vehiculo in lista_vehiculos:
         print (vehiculo)
