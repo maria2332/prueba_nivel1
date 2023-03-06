@@ -114,49 +114,49 @@ catalogar(lista_vehiculos)
 
 
 
-# class vehiculos:
+class vehiculos:
 
-#     lista = []
-#     with open(config.DATABASE_PATH, newline='\n') as fichero:   
-#         reader = csv.reader(fichero, delimiter=';')
-#         for numeroBastidor, color, ruedas in reader:
-#             vehiculo = vehiculo(numeroBastidor, color, ruedas)
-#             lista.append(vehiculo)
+    lista = []
+    with open(configuracion.DATABASE_PATH, newline='\n') as fichero:   
+        reader = csv.reader(fichero, delimiter=';')
+        for numeroBastidor, color, ruedas in reader:
+            vehiculo = vehiculo(numeroBastidor, color, ruedas)
+            lista.append(vehiculo)
 
-#     @staticmethod #creamos el método estático buscar
-#     def buscar(numeroBastidor):
-#         for vehiculo in vehiculos.lista:
-#             if vehiculo.numeroBastidor == numeroBastidor:
-#                 return vehiculo
+    @staticmethod #creamos el método estático buscar
+    def buscar(numeroBastidor):
+        for vehiculo in vehiculos.lista:
+            if vehiculo.numeroBastidor == numeroBastidor:
+                return vehiculo
 
-#     @staticmethod #creamos el método estático crear
-#     def crear(numeroBastidor, color, ruedas):
-#         vehiculo = vehiculo(numeroBastidor, color, ruedas)
-#         vehiculos.lista.append(vehiculo)
-#         vehiculos.guardar()
-#         return vehiculo
+    @staticmethod #creamos el método estático crear
+    def crear(numeroBastidor, color, ruedas):
+        vehiculo = vehiculo(numeroBastidor, color, ruedas)
+        vehiculos.lista.append(vehiculo)
+        vehiculos.guardar()
+        return vehiculo
 
-#     @staticmethod #creamos el método estático modificar
-#     def modificar(numeroBastidor, color, ruedas):
-#         for indice, vehiculo in enumerate(vehiculos.lista):
-#             if vehiculo.numeroBastidor == numeroBastidor:
-#                 vehiculos.lista[indice].color = color
-#                 vehiculos.lista[indice].ruedas = ruedas
-#                 vehiculos.guardar()
-#                 return vehiculos.lista[indice]
+    @staticmethod #creamos el método estático modificar
+    def modificar(numeroBastidor, color, ruedas):
+        for indice, vehiculo in enumerate(vehiculos.lista):
+            if vehiculo.numeroBastidor == numeroBastidor:
+                vehiculos.lista[indice].color = color
+                vehiculos.lista[indice].ruedas = ruedas
+                vehiculos.guardar()
+                return vehiculos.lista[indice]
 
-#     @staticmethod #creamos el método estático borrar
-#     def borrar(numeroBastidor):
-#         for indice, vehiculo in enumerate(vehiculos.lista):
-#             if vehiculo.numeroBastidor == numeroBastidor:
-#                 vehiculo = vehiculos.lista.pop(indice)
-#                 vehiculos.guardar()
-#                 return vehiculo
+    @staticmethod #creamos el método estático borrar
+    def borrar(numeroBastidor):
+        for indice, vehiculo in enumerate(vehiculos.lista):
+            if vehiculo.numeroBastidor == numeroBastidor:
+                vehiculo = vehiculos.lista.pop(indice)
+                vehiculos.guardar()
+                return vehiculo
 
-#     @staticmethod #creamos el método estático guardar
-#     def guardar():
-#         with open(config.DATABASE_PATH, 'w', newline='\n') as fichero:
-#             writer = csv.writer(fichero, delimiter=';')
-#             for vehiculo in vehiculos.lista:
-#                 writer.writerow((vehiculo.numeroBastidor, vehiculo.color, vehiculo.ruedas))
+    @staticmethod #creamos el método estático guardar
+    def guardar():
+        with open(configuracion.DATABASE_PATH, 'w', newline='\n') as fichero:
+            writer = csv.writer(fichero, delimiter=';')
+            for vehiculo in vehiculos.lista:
+                writer.writerow((vehiculo.numeroBastidor, vehiculo.color, vehiculo.ruedas))
      

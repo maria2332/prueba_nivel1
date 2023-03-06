@@ -22,49 +22,49 @@ def iniciar(): #creamos la función iniciar
         helpers.limpiar_pantalla() 
 
         if opcion == '1': 
-            print("Listando los clientes...\n")
-            for cliente in db.Clientes.lista: #recorremos la lista de clientes
-                print(cliente)
+            print("Listando los vehiculos...\n")
+            for vehiculo in db.vehiculos.lista: #recorremos la lista de vehiculos
+                print(vehiculo)
 
         elif opcion == '2':
-            print("Buscando un cliente...\n")
+            print("Buscando un vehiculo...\n")
             dni = helpers.leer_texto(3, 3, "DNI (2 int y 1 char)").upper() #leemos el DNI
-            cliente = db.Clientes.buscar(dni) #buscamos el cliente
-            print(cliente) if cliente else print("Cliente no encontrado.")
+            vehiculo = db.vehiculos.buscar(dni) #buscamos el vehiculo
+            print(vehiculo) if vehiculo else print("vehiculo no encontrado.")
 
         elif opcion == '3':
-            print("Añadiendo un cliente...\n")
+            print("Añadiendo un vehiculo...\n")
 
             dni = None
             while True:
                 dni = helpers.leer_texto(3, 3, "DNI (2 int y 1 char)").upper()  # Leemos el DNI
-                if helpers.dni_valido(dni, db.Clientes.lista):  # Comprobamos que el DNI sea válido
+                if helpers.dni_valido(dni, db.vehiculos.lista):  # Comprobamos que el DNI sea válido
                     break
 
             nombre = helpers.leer_texto(2, 30, "Nombre (de 2 a 30 chars)").capitalize() #leemos el nombre y lo capitalizamos
             apellido = helpers.leer_texto(2, 30, "Apellido (de 2 a 30 chars)").capitalize() #leemos el apellido y lo capitalizamos
-            db.Clientes.crear(dni, nombre, apellido) #creamos el cliente
-            print("Cliente añadido correctamente.")
+            db.vehiculos.crear(dni, nombre, apellido) #creamos el vehiculo
+            print("vehiculo añadido correctamente.")
 
         elif opcion == '4':
-            print("Modificando un cliente...\n")
-            dni = helpers.leer_texto(3, 3, "DNI (2 int y 1 char)").upper() # Leemos el DNI del cliente a modificar y lo capitalizamos
-            cliente = db.Clientes.buscar(dni) #buscamos el cliente
-            if cliente:
+            print("Modificando un vehiculo...\n")
+            dni = helpers.leer_texto(3, 3, "DNI (2 int y 1 char)").upper() # Leemos el DNI del vehiculo a modificar y lo capitalizamos
+            vehiculo = db.vehiculos.buscar(dni) #buscamos el vehiculo
+            if vehiculo:
                 nombre = helpers.leer_texto(    #leemos el nombre y lo capitalizamos 
-                    2, 30, f"Nombre (de 2 a 30 chars) [{cliente.nombre}]").capitalize()
+                    2, 30, f"Nombre (de 2 a 30 chars) [{vehiculo.nombre}]").capitalize()
                 apellido = helpers.leer_texto( #leemos el apellido y lo capitalizamos
-                    2, 30, f"Apellido (de 2 a 30 chars) [{cliente.apellido}]").capitalize()
-                db.Clientes.modificar(cliente.dni, nombre, apellido)
-                print("Cliente modificado correctamente.")
+                    2, 30, f"Apellido (de 2 a 30 chars) [{vehiculo.apellido}]").capitalize()
+                db.vehiculos.modificar(vehiculo.dni, nombre, apellido)
+                print("vehiculo modificado correctamente.")
             else:
-                print("Cliente no encontrado.")
+                print("vehiculo no encontrado.")
 
         elif opcion == '5':
-            print("Borrando un cliente...\n")
-            dni = helpers.leer_texto(3, 3, "DNI (2 int y 1 char)").upper() # Leemos el DNI del cliente a borrar y lo capitalizamos
-            print("Cliente borrado correctamente.") if db.Clientes.borrar(   #borramos el cliente
-                dni) else print("Cliente no encontrado.")
+            print("Borrando un vehiculo...\n")
+            dni = helpers.leer_texto(3, 3, "DNI (2 int y 1 char)").upper() # Leemos el DNI del vehiculo a borrar y lo capitalizamos
+            print("vehiculo borrado correctamente.") if db.vehiculos.borrar(   #borramos el vehiculo
+                dni) else print("vehiculo no encontrado.")
 
         elif opcion == '6':
             print("Saliendo...\n")
