@@ -114,7 +114,6 @@ catalogar(lista_vehiculos)
 
 
 
-
 # class vehiculos:
 
 #     lista = []
