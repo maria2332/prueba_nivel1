@@ -54,7 +54,7 @@ class Motocicleta(Bicicleta):
  
 class Quad(Coche):
     def __init__(self, numeroBastidor, color, ruedas, tipo, velocidad, cilindrada, modelo, carga):
-        super.__init__(numeroBastidor, color, ruedas, velocidad, cilindrada) 
+        super().__init__(numeroBastidor, color, ruedas, velocidad, cilindrada) 
         self.modelo = modelo
         self.carga = carga
         self.tipo = tipo
@@ -74,7 +74,7 @@ print(m)
 cam = camioneta("blanca", 4, "ahksa", 100, 2000, 1000)
 print(cam)
 
-q = Quad("negra", 4, "jmskl", "urbana", 200, 600, "modelo", 100)
+q = Quad("negra", 4, "jmskl", "urbana", 200, 600, "panda", 100)
 print(q)
 
 # lista_vehiculos = [c, b, m, cam]
@@ -101,3 +101,49 @@ print(q)
 
 
 
+# class vehiculos:
+
+#     lista = []
+#     with open(config.DATABASE_PATH, newline='\n') as fichero:   
+#         reader = csv.reader(fichero, delimiter=';')
+#         for numeroBastidor, nombre, apellido in reader:
+#             vehiculo = vehiculo(numeroBastidor, nombre, apellido)
+#             lista.append(vehiculo)
+
+#     @staticmethod #creamos el método estático buscar
+#     def buscar(numeroBastidor):
+#         for vehiculo in vehiculos.lista:
+#             if vehiculo.numeroBastidor == numeroBastidor:
+#                 return vehiculo
+
+#     @staticmethod #creamos el método estático crear
+#     def crear(numeroBastidor, nombre, apellido):
+#         vehiculo = vehiculo(numeroBastidor, nombre, apellido)
+#         vehiculos.lista.append(vehiculo)
+#         vehiculos.guardar()
+#         return vehiculo
+
+#     @staticmethod #creamos el método estático modificar
+#     def modificar(numeroBastidor, nombre, apellido):
+#         for indice, vehiculo in enumerate(vehiculos.lista):
+#             if vehiculo.numeroBastidor == numeroBastidor:
+#                 vehiculos.lista[indice].nombre = nombre
+#                 vehiculos.lista[indice].apellido = apellido
+#                 vehiculos.guardar()
+#                 return vehiculos.lista[indice]
+
+#     @staticmethod #creamos el método estático borrar
+#     def borrar(numeroBastidor):
+#         for indice, vehiculo in enumerate(vehiculos.lista):
+#             if vehiculo.numeroBastidor == numeroBastidor:
+#                 vehiculo = vehiculos.lista.pop(indice)
+#                 vehiculos.guardar()
+#                 return vehiculo
+
+#     @staticmethod #creamos el método estático guardar
+#     def guardar():
+#         with open(config.DATABASE_PATH, 'w', newline='\n') as fichero:
+#             writer = csv.writer(fichero, delimiter=';')
+#             for vehiculo in vehiculos.lista:
+#                 writer.writerow((vehiculo.numeroBastidor, vehiculo.nombre, vehiculo.apellido))
+     
