@@ -15,12 +15,12 @@ def leer_texto(longitud_min=0, longitud_max=100, mensaje=None): # Función para 
             return texto
 
 
-def dni_valido(dni, lista): # Función para validar el DNI
-    if not re.match('[0-9]{2}[A-Z]$', dni): # Comprobamos que el DNI cumpla el formato
-        print("DNI incorrecto, debe cumplir el formato.")
+def numeroBastidor_valido(numeroBastidor, lista): # Función para validar el numeroBastidor
+    if not re.match('[0-9]{2}[A-Z]$', numeroBastidor): # Comprobamos que el numeroBastidor cumpla el formato
+        print("numeroBastidor incorrecto, debe cumplir el formato.")
         return False
-    for cliente in lista: # Comprobamos que el DNI no esté utilizado por otro cliente
-        if cliente.dni == dni: 
-            print("DNI utilizado por otro cliente.")
+    for cliente in lista: # Comprobamos que el numeroBastidor no esté utilizado por otro cliente
+        if cliente.numeroBastidor == numeroBastidor: 
+            print("numeroBastidor utilizado por otro cliente.")
             return False
     return True
