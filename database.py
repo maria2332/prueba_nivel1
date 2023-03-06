@@ -52,26 +52,15 @@ class Motocicleta(Bicicleta):
             return super().__str__() + ", Velocidad: " + str(self.velocidad) + ", Cilindrada: " + str(self.cilindrada)
      
  
-class Quad(Bicicleta, Coche):
-    def __init__(self, numeroBastidor, color, ruedas, modelo, carga):
-        super.__init__(numeroBastidor, color, ruedas) and Bicicleta.__init__(color, ruedas)
+class Quad(Coche):
+    def __init__(self, numeroBastidor, color, ruedas, tipo, velocidad, cilindrada, modelo, carga):
+        super.__init__(numeroBastidor, color, ruedas, velocidad, cilindrada) 
         self.modelo = modelo
         self.carga = carga
+        self.tipo = tipo
     def __str__(self):
-            return super().__str__() + ", Velocidad: " + str(self.modelo) + ", Cilindrada: " + str(self.carga)
+            return super().__str__() + ", Modelo: " + str(self.modelo) + ", Carga: " + str(self.carga) + ", Tipo: " + str(self.tipo)
     
-
-# def catalogar(lista_vehiculos):
-#     for vehiculo in lista_vehiculos:
-#         print (vehiculo)
-#         ruedas = vehiculo.ruedas
-#         if ruedas == 2:
-#             print("Es una bicicleta o una motocicleta")
-#         elif ruedas == 4:
-#             print("Es un coche o una camioneta")
-#         else:
-#             print("No es un vehículo")
-#     return lista_vehiculos   
 
 c = Coche("azul", 4, "asdsf", 150, 1200)
 print(c)
@@ -79,16 +68,36 @@ print(c)
 b = Bicicleta("roja", 2, "wqref", "urbana")
 print(b)
 
-m = Motocicleta("negra", 3, "jmskl", "urbana", 200, 600)
+m = Motocicleta("negra", 2, "jmskl", "urbana", 200, 600)
 print(m)
 
 cam = camioneta("blanca", 4, "ahksa", 100, 2000, 1000)
 print(cam)
 
-# q = Quad("verde", 4, "panda", 1200)
-# print(q)
+q = Quad("negra", 4, "jmskl", "urbana", 200, 600, "modelo", 100)
+print(q)
 
-# lista_vehiculos = [Coche("azul", 4, 150, 1200), Bicicleta("roja", 2, "urbana"), Motocicleta("negra", 2, "urbana", 200, 600), camioneta("blanca", 4, 100, 2000, 1000)]
+# lista_vehiculos = [c, b, m, cam]
+
+# def catalogar(lista_vehiculos):
+#     for vehiculo in lista_vehiculos:
+#         print (vehiculo)
+#         ruedas = vehiculo.ruedas
+#         if ruedas == 2:
+#             if isinstance(vehiculo, Bicicleta):
+#                 print("Es una bicicleta")
+#             elif isinstance(vehiculo, Motocicleta):
+#                 print("Es una motocicleta")
+#         elif ruedas == 4:
+#             if isinstance(vehiculo, Coche):
+#                 print("Es un coche")
+#             elif isinstance(vehiculo, camioneta):
+#                 print("Es una camioneta")           
+#         else:
+#             print("No es un vehículo")
+#     return lista_vehiculos
+
+# catalogar(lista_vehiculos)
 
 
-# catalogar(lista_vehiculos)  
+
