@@ -28,43 +28,43 @@ def iniciar(): #creamos la función iniciar
 
         elif opcion == '2':
             print("Buscando un vehiculo...\n")
-            dni = helpers.leer_texto(3, 3, "DNI (2 int y 1 char)").upper() #leemos el DNI
-            vehiculo = db.vehiculos.buscar(dni) #buscamos el vehiculo
+            numeroBastidor = helpers.leer_texto(3, 3, "numeroBastidor (2 int y 1 char)").upper() #leemos el numeroBastidor
+            vehiculo = db.vehiculos.buscar(numeroBastidor) #buscamos el vehiculo
             print(vehiculo) if vehiculo else print("vehiculo no encontrado.")
 
         elif opcion == '3':
             print("Añadiendo un vehiculo...\n")
 
-            dni = None
+            numeroBastidor = None
             while True:
-                dni = helpers.leer_texto(3, 3, "DNI (2 int y 1 char)").upper()  # Leemos el DNI
-                if helpers.dni_valido(dni, db.vehiculos.lista):  # Comprobamos que el DNI sea válido
+                numeroBastidor = helpers.leer_texto(3, 3, "numeroBastidor (2 int y 1 char)").upper()  # Leemos el numeroBastidor
+                if helpers.numeroBastidor_valido(numeroBastidor, db.vehiculos.lista):  # Comprobamos que el numeroBastidor sea válido
                     break
 
             nombre = helpers.leer_texto(2, 30, "Nombre (de 2 a 30 chars)").capitalize() #leemos el nombre y lo capitalizamos
             apellido = helpers.leer_texto(2, 30, "Apellido (de 2 a 30 chars)").capitalize() #leemos el apellido y lo capitalizamos
-            db.vehiculos.crear(dni, nombre, apellido) #creamos el vehiculo
+            db.vehiculos.crear(numeroBastidor, nombre, apellido) #creamos el vehiculo
             print("vehiculo añadido correctamente.")
 
         elif opcion == '4':
             print("Modificando un vehiculo...\n")
-            dni = helpers.leer_texto(3, 3, "DNI (2 int y 1 char)").upper() # Leemos el DNI del vehiculo a modificar y lo capitalizamos
-            vehiculo = db.vehiculos.buscar(dni) #buscamos el vehiculo
+            numeroBastidor = helpers.leer_texto(3, 3, "numeroBastidor (2 int y 1 char)").upper() # Leemos el numeroBastidor del vehiculo a modificar y lo capitalizamos
+            vehiculo = db.vehiculos.buscar(numeroBastidor) #buscamos el vehiculo
             if vehiculo:
                 nombre = helpers.leer_texto(    #leemos el nombre y lo capitalizamos 
                     2, 30, f"Nombre (de 2 a 30 chars) [{vehiculo.nombre}]").capitalize()
                 apellido = helpers.leer_texto( #leemos el apellido y lo capitalizamos
                     2, 30, f"Apellido (de 2 a 30 chars) [{vehiculo.apellido}]").capitalize()
-                db.vehiculos.modificar(vehiculo.dni, nombre, apellido)
+                db.vehiculos.modificar(vehiculo.numeroBastidor, nombre, apellido)
                 print("vehiculo modificado correctamente.")
             else:
                 print("vehiculo no encontrado.")
 
         elif opcion == '5':
             print("Borrando un vehiculo...\n")
-            dni = helpers.leer_texto(3, 3, "DNI (2 int y 1 char)").upper() # Leemos el DNI del vehiculo a borrar y lo capitalizamos
+            numeroBastidor = helpers.leer_texto(3, 3, "numeroBastidor (2 int y 1 char)").upper() # Leemos el numeroBastidor del vehiculo a borrar y lo capitalizamos
             print("vehiculo borrado correctamente.") if db.vehiculos.borrar(   #borramos el vehiculo
-                dni) else print("vehiculo no encontrado.")
+                numeroBastidor) else print("vehiculo no encontrado.")
 
         elif opcion == '6':
             print("Saliendo...\n")
