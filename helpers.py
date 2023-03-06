@@ -19,8 +19,8 @@ def numeroBastidor_valido(numeroBastidor, lista): # Función para validar el num
     if not re.match('[0-9]{2}[A-Z]$', numeroBastidor): # Comprobamos que el numeroBastidor cumpla el formato
         print("numeroBastidor incorrecto, debe cumplir el formato.")
         return False
-    for cliente in lista: # Comprobamos que el numeroBastidor no esté utilizado por otro cliente
-        if cliente.numeroBastidor == numeroBastidor: 
-            print("numeroBastidor utilizado por otro cliente.")
+    for vehiculo in lista: # Comprobamos que el numeroBastidor no esté utilizado por otro vehiculo
+        if vehiculo.numeroBastidor == numeroBastidor: 
+            print("numeroBastidor utilizado por otro vehiculo.")
             return False
     return True
