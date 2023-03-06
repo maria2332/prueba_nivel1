@@ -42,13 +42,13 @@ class Motocicleta(Bicicleta):
             return super().__str__() + ", Velocidad: " + str(self.velocidad) + ", Cilindrada: " + str(self.cilindrada)
      
  
-class Quad(vehiculo):
-    def __init__(self, color, ruedas, velocidad, cilindrada):
-        super.__init__(color, ruedas) and Bicicleta.__init__(self, color, ruedas)
-        self.velocidad = velocidad
-        self.cilindrada = cilindrada
+class Quad(Bicicleta, Coche):
+    def __init__(self, color, ruedas, modelo, carga):
+        super.__init__(color, ruedas) and Bicicleta.__init__(color, ruedas)
+        self.modelo = modelo
+        self.carga = carga
     def __str__(self):
-            return super().__str__() + ", Velocidad: " + str(self.velocidad) + ", Cilindrada: " + str(self.cilindrada)
+            return super().__str__() + ", Velocidad: " + str(self.modelo) + ", Cilindrada: " + str(self.carga)
     
 
 # def catalogar(lista_vehiculos):
@@ -75,7 +75,7 @@ print(m)
 cam = camioneta("blanca", 4, 100, 2000, 1000)
 print(cam)
 
-q = Quad("verde", 4, 150, 1200)
+q = Quad("verde", 4, "panda", 1200)
 print(q)
 
 # lista_vehiculos = [Coche("azul", 4, 150, 1200), Bicicleta("roja", 2, "urbana"), Motocicleta("negra", 2, "urbana", 200, 600), camioneta("blanca", 4, 100, 2000, 1000)]
